@@ -5,4 +5,6 @@ pip install \
     --trusted-host pypi.python.org \
     --trusted-host=files.pythonhosted.org \
     --no-cache-dir \
-    -r ./requirements.txt
+    -r ./app/requirements.txt
+
+  
