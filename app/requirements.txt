@@ -1,0 +1,7 @@
+flask
+gunicorn
+
+pytest
+splinter
+splinter[flask]
+selenium

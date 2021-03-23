@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+
+  postgresql:
+    build: postgresql
+    image: postgresql:ready
+    container_name: postgresql
+    ports:
+      - 2345:5432
+    environment:
+      - POSTGRES_DB=exploration
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+    volumes:
+      - .:/usr/local/src 
+  
+  builder:
+    build: builder
+    image: builder:ready
+    container_name: builder
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/usr/local/src

@@ -1,0 +1,7 @@
+.venv/
+*.pyc
+*.egg/
+*.egg-info/
+.idea/
+geckodriver.log
+node_modules
