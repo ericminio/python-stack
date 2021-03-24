@@ -23,15 +23,15 @@
                 data() {
                     return {
                         title: 'fetching...',
-                        users: [
-                            { username:'Alice' },
-                            { username:'Bob' }
-                        ]
+                        users: []
                     }
                 },
                 mounted() {
                     fetchData('/data', document).then(async data => {
                         this.title = data.title
+                    })
+                    fetchData('/users', document).then(async list => {
+                        this.users = list.entries
                     })
                 }
             }
