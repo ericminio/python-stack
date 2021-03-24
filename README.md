@@ -4,6 +4,11 @@
 docker-compose up -d database
 ```
 
+## start nginx
+```
+docker-compose up -d nginx
+```
+
 ## Run the tests
 ```
 docker-compose run --rm builder
@@ -24,5 +29,5 @@ docker-compose run --rm --service-ports builder
 source ./tests/adjust-path.sh
 gunicorn -w 1 -b 0.0.0.0:5000 app:app
 
-open http://localhost:5000
+open http://localhost:8080
 ```

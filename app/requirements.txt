@@ -2,6 +2,7 @@ flask
 gunicorn
 flask_sqlalchemy
 psycopg2
+flask-cors
 
 pytest
 splinter

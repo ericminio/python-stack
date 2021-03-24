@@ -6,17 +6,13 @@ import os
 import pytest
 
 @pytest.fixture(scope="session")
-def port():
-    return 8080
+def base_url():
+    return 'http://host.docker.internal:8080'
 
 @pytest.fixture(scope="session")
-def base_url(port):
-    return 'http://localhost:' + str(port)
-
-@pytest.fixture(scope="session")
-def server(port):
-    server = ServerDriver(name='MyServer', port=port)
-    server.start(cmd=['gunicorn', 'app:app', '-w', '1', '-b', '0.0.0.0:{0}'.format(port)])
+def server():
+    server = ServerDriver(name='MyServer', port=5000)
+    server.start(cmd=['gunicorn', 'app:app', '-w', '1', '-b', '0.0.0.0:{0}'.format(5000)])
     return server
 
 @pytest.fixture(scope="session")

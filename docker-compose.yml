@@ -15,6 +15,14 @@ services:
     volumes:
       - .:/usr/local/src 
   
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports: 
+      - 8080:80
+    volumes:
+      - ./app/static:/usr/share/nginx/html
+
   builder:
     build: builder
     image: builder:ready
