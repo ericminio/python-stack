@@ -5,21 +5,20 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://unpkg.com/vue@3.0.7/dist/vue.global.js"></script>
-        <script src="{{ url_for('static', filename='main.js') }}"></script>              
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <script src="/static/js/main.js"></script>              
+        <link  href="/static/css/main.css" rel="StyleSheet" type="text/css">
     </head>
     <body>
         <div id="app">
-            <label id="title">[[ title ]]</label>
+            <label id="title">{{ title }}</label>
 
             <ol id="users">
-                <li v-for="(user, index) in users" :id="['user-' + (index+1)]">[[ user.username ]]</li>
+                <li v-for="(user, index) in users" :id="['user-' + (index+1)]">{{ user.username }}</li>
             </ol>
         </div>
 
         <script>            
             const App = {
-                delimiters: [ '[[', ']]' ],
                 data() {
                     return {
                         title: 'fetching...',

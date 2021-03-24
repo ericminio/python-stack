@@ -1,18 +1,27 @@
 import os
 from flask import Flask, jsonify
-from flask import render_template
+from flask import send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 from app.migrations import migrate
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://dev:dev@host.docker.internal:2345/exploration'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate(db)
 
+@app.before_request
+def before():
+    print(request)
+
+
 @app.route('/')
 def index():
-    return render_template('home.html')
+    return send_from_directory(app.static_folder, 'html/home.html')
+
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory(app.static_folder, path)    
 
 @app.route('/data')    
 def data():
