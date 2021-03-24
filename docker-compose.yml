@@ -14,13 +14,20 @@ services:
     volumes:
       - .:/usr/local/src 
   
-  nginx:
+  frontend:
     image: nginx
-    container_name: nginx
+    container_name: frontend
     ports: 
       - 8080:80
     volumes:
       - ./frontend:/usr/share/nginx/html
+
+  backend:
+    build: backend
+    image: backend:python
+    container_name: backend
+    ports:
+      - 5000:5000
 
   builder:
     image: python:3

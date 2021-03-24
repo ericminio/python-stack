@@ -3,8 +3,3 @@ gunicorn
 flask_sqlalchemy
 psycopg2
 flask-cors
-
-pytest
-splinter
-splinter[flask]
-selenium
