@@ -12,3 +12,4 @@ def test_users_are_sorted(db, client):
     assert entries[0]['username'] == 'tac'
     assert entries[1]['username'] == 'tic'
     assert entries[2]['username'] == 'toc'
+    assert entries[2]['id'] == 3

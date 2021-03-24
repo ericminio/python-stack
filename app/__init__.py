@@ -1,6 +1,6 @@
 import os
 from flask import Flask, jsonify
-from flask import send_from_directory, request
+from flask import send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from app.migrations import migrate
 
@@ -9,11 +9,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://dev:dev@host.docker.intern
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate(db)
-
-@app.before_request
-def before():
-    print(request)
-
 
 @app.route('/')
 def index():
@@ -30,7 +25,7 @@ def data():
 
 @app.route('/users')    
 def users():
-    users = db.engine.execute('select username from foi_user order by username').fetchall()
-    value = { 'entries': [ { 'username':user['username'] } for user in users ] }
+    users = db.engine.execute('select id, username from foi_user order by username').fetchall()
+    value = { 'entries': [ { 'id':user['id'], 'username':user['username'] } for user in users ] }
     return jsonify(value)
 

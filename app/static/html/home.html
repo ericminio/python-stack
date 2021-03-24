@@ -13,7 +13,7 @@
             <label id="title">{{ title }}</label>
 
             <ol id="users">
-                <li v-for="(user, index) in users" :id="['user-' + (index+1)]">{{ user.username }}</li>
+                <li class="user" v-for="user in users" :id="['user-' + user.id]">{{ user.username }}</li>
             </ol>
         </div>
 
