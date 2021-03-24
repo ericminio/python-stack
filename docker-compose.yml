@@ -2,10 +2,10 @@ version: '3.4'
 
 services:
 
-  postgresql:
+  database:
     build: postgresql
     image: postgresql:ready
-    container_name: postgresql
+    container_name: database
     ports:
       - 2345:5432
     environment:

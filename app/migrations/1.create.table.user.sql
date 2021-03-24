@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS foi_user (
+  id SERIAL,
+  username TEXT UNIQUE NOT NULL
+);
