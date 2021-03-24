@@ -19,3 +19,9 @@ def data():
     value = { 'title':'hello world' }
     return jsonify(value)
 
+@app.route('/users')    
+def users():
+    users = db.engine.execute('select username from foi_user').fetchall()
+    value = { 'data': [ user['username'] for user in users ] }
+    return jsonify(value)
+

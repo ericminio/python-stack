@@ -7,7 +7,11 @@ def client():
     return app.test_client()
 
 @pytest.fixture
-def db():
+def clean_db():
+    database.engine.execute('truncate table foi_user')
+
+@pytest.fixture
+def db(clean_db):
     return database
 
 
