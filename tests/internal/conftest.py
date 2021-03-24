@@ -1,4 +1,4 @@
-from app import app, db as database
+from backend import app, db as database
 from flask_sqlalchemy import SQLAlchemy
 import pytest
 

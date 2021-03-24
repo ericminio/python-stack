@@ -3,8 +3,7 @@ version: '3.4'
 services:
 
   database:
-    build: postgresql
-    image: postgresql:ready
+    image: postgres:12
     container_name: database
     ports:
       - 2345:5432
@@ -21,13 +20,14 @@ services:
     ports: 
       - 8080:80
     volumes:
-      - ./app/static:/usr/share/nginx/html
+      - ./frontend:/usr/share/nginx/html
 
   builder:
-    build: builder
-    image: builder:ready
+    image: python:3
     container_name: builder
     ports:
       - 5000:5000
     volumes:
       - .:/usr/local/src
+    entrypoint: bash
+    working_dir: /usr/local/src

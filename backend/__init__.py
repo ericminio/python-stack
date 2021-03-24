@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 from flask import send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from app.migrations import migrate
+from backend.migrations import migrate
 
 app = Flask(__name__)
 CORS(app)

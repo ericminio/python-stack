@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from app.migrations import migrate
+from backend.migrations import migrate
 
 def test_db_is_prepopulated(db):
     migrate(db)

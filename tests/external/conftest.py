@@ -12,7 +12,7 @@ def base_url():
 @pytest.fixture(scope="session")
 def server():
     server = ServerDriver(name='MyServer', port=5000)
-    server.start(cmd=['gunicorn', 'app:app', '-w', '1', '-b', '0.0.0.0:{0}'.format(5000)])
+    server.start(cmd=['gunicorn', 'backend:app', '-w', '1', '-b', '0.0.0.0:{0}'.format(5000)])
     return server
 
 @pytest.fixture(scope="session")

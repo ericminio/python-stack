@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/vue@3.0.7/dist/vue.global.js"></script>
+        <script src="/js/main.js"></script>              
+        <link  href="/css/main.css" rel="StyleSheet" type="text/css">
+    </head>
+    <body>
+        <div id="app">
+            <label id="title">{{ title }}</label>
+
+            <ol id="users">
+                <li class="user" v-for="user in users" :id="['user-' + user.id]">{{ user.username }}</li>
+            </ol>
+        </div>
+
+        <script>            
+            const App = {
+                data() {
+                    return {
+                        title: 'fetching...',
+                        users: []
+                    }
+                },
+                mounted() {
+                    fetchData('/data', document).then(async data => {
+                        this.title = data.title
+                    })
+                    fetchData('/users', document).then(async list => {
+                        this.users = list.entries
+                    })
+                }
+            }
+            Vue.createApp(App).mount('#app')  
+        </script>
+
+    </body>
+</html>
