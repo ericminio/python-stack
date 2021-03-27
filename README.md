@@ -1,40 +1,24 @@
-
-## Working software
-
-Start with 
+## Local development
 ```
-docker-compose up -d database
+docker-compose up
 ```
 
-Wait for the database to be started, then
+Open http://localhost
 
-```
-docker-compose up -d frontend backend
-```
-
-open http://localhost:8080
-
-Should see hellow world, and Alice & Bob listed
+Should see 
+- hello world coming from api
+- Alice & Bob coming from api+database
 
 ## Run the tests
 
-assuming database and frontend ar up
-
+Assuming containers are running
 ```
-docker-compose run --rm --service-ports builder
+docker-compose exec backend bash
 
-./backend/requirements.sh
-./tests/install-firefox.sh
-source ./tests/adjust-path.sh
+./tests/install-internal.sh
 pytest tests/internal
-pytest tests/external
-```
 
-See the app running locally
+./tests/install-external.sh
+source ./tests/install-geckodriver.txt
+pytest tests/internal
 ```
-gunicorn -w 1 -b 0.0.0.0:5000 backend:app
-```
-open http://localhost:8080
-
-btw, my favorite prompt: PS1='\n\[\e[32m\]\u \[\e[33m\]in \w\[\e[0m\] \n> '
-

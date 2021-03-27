@@ -1,6 +1,8 @@
 FROM python:3
 
-COPY . /usr/local/src/backend
+RUN apt-get update && apt-get install -y postgresql-client
+
+COPY requirements* /usr/local/src/backend/
 RUN pip install \
     --trusted-host pypi.org \
     --trusted-host pypi.python.org \
@@ -9,4 +11,5 @@ RUN pip install \
     -r /usr/local/src/backend/requirements-prod.txt
 
 WORKDIR /usr/local/src
-CMD ["gunicorn", "-w", "1", "-b", "0.0.0.0:5000", "backend:app"]
+
+CMD ["/usr/local/src/backend/start.sh"]
