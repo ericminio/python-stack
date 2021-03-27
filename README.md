@@ -20,5 +20,5 @@ pytest tests/internal
 
 ./tests/install-external.sh
 source ./tests/install-geckodriver.txt
-pytest tests/internal
+pytest tests/external
 ```
