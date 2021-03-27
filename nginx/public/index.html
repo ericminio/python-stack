@@ -26,10 +26,10 @@
                     }
                 },
                 mounted() {
-                    fetchData('/api/data', document).then(async data => {
+                    fetchData('/data', document).then(async data => {
                         this.title = data.title
                     })
-                    fetchData('/api/users', document).then(async list => {
+                    fetchData('/users', document).then(async list => {
                         this.users = list.entries
                     })
                 }
