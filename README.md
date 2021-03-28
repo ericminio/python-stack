@@ -18,20 +18,13 @@ Should see
 ## features
 ```
 docker-compose up
-docker-compose exec backend bash
-
-./features/install.sh
-source ./features/install-geckodriver.txt
-behave
+docker-compose exec backend ./features/support/run.sh
 ```
 
 ## backend
 ```
 docker-compose up
-docker-compose exec backend bash
-
-./backend/requirements.sh
-pytest backend/tests
+docker-compose exec backend ./backend/tests/support/run.sh
 ```
 
 # Deployment
