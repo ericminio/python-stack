@@ -20,9 +20,8 @@ Should see
 docker-compose up
 docker-compose exec backend bash
 
-./backend/tests/install.sh
-./tests/install.sh
-source ./tests/install-geckodriver.txt
+./features/install.sh
+source ./features/install-geckodriver.txt
 behave
 ```
 
