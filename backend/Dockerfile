@@ -8,7 +8,7 @@ RUN pip install \
     --trusted-host pypi.python.org \
     --trusted-host=files.pythonhosted.org \
     --no-cache-dir \
-    -r /usr/local/src/backend/requirements-prod.txt
+    -r /usr/local/src/backend/requirements.txt
 WORKDIR /usr/local/src
 
 CMD ["/usr/local/src/backend/start.sh"]
