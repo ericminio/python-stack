@@ -15,16 +15,24 @@ Should see
 
 # Run the tests
 
-Assuming containers are running
+## features
 ```
+docker-compose up
 docker-compose exec backend bash
 
-./tests/install-internal.sh
-pytest tests/internal
-
-./tests/install-external.sh
+./backend/tests/install.sh
+./tests/install.sh
 source ./tests/install-geckodriver.txt
 pytest tests/external
+```
+
+## backend
+```
+docker-compose up
+docker-compose exec backend bash
+
+./backend/requirements.sh
+pytest backend/tests
 ```
 
 # Deployment

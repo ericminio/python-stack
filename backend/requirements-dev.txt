@@ -1,6 +1,3 @@
 -r requirements-prod.txt
 
 pytest
-splinter
-splinter[flask]
-selenium

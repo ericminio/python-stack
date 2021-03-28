@@ -6,7 +6,7 @@ import pytest
 
 @pytest.fixture(scope="session")
 def base_url():
-    return 'http://nginx'
+    return 'http://nginx:8080'
 
 @pytest.fixture(scope="session")
 def browser(base_url):
