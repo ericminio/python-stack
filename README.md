@@ -1,6 +1,6 @@
 # Working Sofware
 
-https://python-stack.herokuapp.com/
+https://python-stack.herokuapp.com
 
 # Local development
 ```
