@@ -2,3 +2,4 @@ splinter
 behave
 selenium
 splinter
+pyhamcrest
