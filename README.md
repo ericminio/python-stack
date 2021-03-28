@@ -23,7 +23,7 @@ docker-compose exec backend bash
 ./backend/tests/install.sh
 ./tests/install.sh
 source ./tests/install-geckodriver.txt
-pytest tests/external
+behave
 ```
 
 ## backend
