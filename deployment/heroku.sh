@@ -1,5 +1,7 @@
 #!/bin/bash
 
+heroku container:login 
+
 cd backend
 heroku container:push web --app python-stack-backend
 heroku container:release web --app python-stack-backend

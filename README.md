@@ -31,13 +31,17 @@ docker-compose exec backend ./backend/tests/support/run.sh
 
 ## Heroku
 
-- create 2 applications, say `app-nginx` and ```app-backend```
-- add config var `BACKEND_URL` in application `nginx`
-- deploy `backend`
-    - `cd backend`
-    - `heroku container:push web --app app-backend`
-    - `heroku container:release web --app app-backend`
-- deploy `nginx`
-    - `cd nginx`
-    - `heroku container:push web --app app-nginx`
-    - `heroku container:release web --app app-nginx`
+- create 2 applications, for example
+    - `python-stack`
+    - `python-stack-backend`
+- access your heroku.com account
+    - navigate to `python-stack` Settings
+    - click `Reveal Config Vars`
+    - add config var 
+        - key `BACKEND_URL`
+        - value `https://python-stack-backend.herokuapp.com/` [1]
+- run `./deployment/heroku.sh` [2]
+
+[1] trailing slash needed by nginx configuration
+
+[2] adjust script to target your applications.
