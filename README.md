@@ -5,10 +5,8 @@ https://python-stack.herokuapp.com
 # Local development
 ```
 docker-compose up
+open http://localhost:8080
 ```
-
-Open http://localhost:8080
-
 Should see 
 - hello world coming from api
 - Alice & Bob coming from api+database
