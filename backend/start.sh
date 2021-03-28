@@ -11,4 +11,8 @@ done;
 echo "database is ready";
 rm ./backend/init.output
 
-gunicorn -w 1 -b 0.0.0.0:5000 --reload --reload-engine auto backend:app
+if [ -z ${PORT} ]; then
+    PORT=$BACKEND_PORT
+fi
+
+gunicorn -w 1 -b 0.0.0.0:$PORT --reload --reload-engine auto backend:app

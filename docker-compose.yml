@@ -11,23 +11,27 @@ services:
       - POSTGRES_DB=exploration
       - POSTGRES_USER=dev
       - POSTGRES_PASSWORD=dev
-    volumes:
-      - .:/usr/local/src 
   
   nginx:
-    image: nginx
+    build: nginx
+    image: nginx:ready
     container_name: nginx
+    environment: 
+      - BACKEND_URL=http://backend:5000/
+      - NGINX_PORT=8080
     ports: 
-      - 80:80
+      - 8080:8080
     volumes:
       - ./nginx/public:/usr/share/nginx/html
-      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx:/usr/local/src/nginx
 
   backend:
     build: backend
     image: backend:python
     container_name: backend
-    env_file: .env
+    environment: 
+      - DATABASE_URL=postgres://dev:dev@database:5432/exploration
+      - BACKEND_PORT=5000
     ports:
       - 5000:5000
     volumes:
