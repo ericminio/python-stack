@@ -1,3 +1,5 @@
+[![Build Status](https://www.travis-ci.com/ericminio/python-stack.svg?branch=master)](https://www.travis-ci.com/ericminio/python-stack)
+
 # Working Sofware
 
 https://python-stack.herokuapp.com
