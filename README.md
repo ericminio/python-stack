@@ -1,6 +1,6 @@
 [![Build Status](https://www.travis-ci.com/ericminio/python-stack.svg?branch=master)](https://www.travis-ci.com/ericminio/python-stack)
 
-![Build Status](https://github.com/ericminio/python-stack/actions/workflows/python.yml/badge.svg)
+[![Build Status](https://github.com/ericminio/python-stack/actions/workflows/python.yml/badge.svg)](https://github.com/ericminio/python-stack/actions)
 
 # Working Sofware
 
