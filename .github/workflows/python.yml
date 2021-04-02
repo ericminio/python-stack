@@ -13,4 +13,9 @@ jobs:
       run: docker version
     - name: Build images
       run: docker-compose build
+    - name: Start
+      run: docker-compose up -d
+    - name: Run features
+      run: docker-compose exec backend ./features/support/run.sh
+
       
