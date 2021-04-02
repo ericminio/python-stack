@@ -11,11 +11,13 @@ jobs:
     - uses: actions/checkout@v2
     - name: Display docker version
       run: docker version
+    - name: Display docker-compose version
+      run: docker-compose version
     - name: Build images
       run: docker-compose build
     - name: Start
       run: docker-compose up -d
     - name: Run features
-      run: docker-compose exec backend ./features/support/run.sh
+      run: docker-compose exec -T backend ./features/support/run.sh
 
       
