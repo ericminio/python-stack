@@ -1,0 +1,8 @@
+dist: xenial
+language: bash
+services:
+    - docker
+scripts:
+  - docker-compose up -d
+  - docker-compose exec backend ./features/support/run.sh
+  - docker-compose exec backend ./backend/tests/support/run.sh
