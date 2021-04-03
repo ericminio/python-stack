@@ -6,6 +6,7 @@ jobs:
 
   info:
     name: about docker
+    runs-on: ubuntu-latest
     steps:
     - name: versions
       run: |
