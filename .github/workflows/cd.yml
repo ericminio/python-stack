@@ -24,6 +24,7 @@ jobs:
         healthcheck: "https://python-stack-backend.herokuapp.com/data"
 
   nginx:
+    needs: backend
     name: deploy nginx
     runs-on: ubuntu-latest
     steps:
@@ -37,3 +38,4 @@ jobs:
         appdir: nginx
         docker_heroku_process_type: web
         stack: container
+        healthcheck: "https://python-stack.herokuapp.com/api/data"
