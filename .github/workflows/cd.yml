@@ -1,31 +1,38 @@
 name: CD
 
-on: [push]
+on:
+  push:
+    branches:
+      - deployed
 
 jobs:
 
-  info:
-    name: about docker
-    runs-on: ubuntu-latest
-    steps:
-    - name: versions
-      run: |
-        docker version
-        docker-compose version
-
-  tests:
-    needs: info
-    name: run tests
+  backend:
+    name: deploy backend
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build images
-      run: docker-compose build
-    - name: Start
-      run: docker-compose up -d
-    - name: Run features
-      run: |
-        docker-compose exec -T backend ./features/support/run.sh
-        docker-compose exec -T backend ./backend/tests/support/run.sh
+    - uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{secrets.HEROKU_PYTHONSTACK}}
+        heroku_app_name: "python-stack-backend"
+        heroku_email: "eric.mignot+pythonstack@gmail.com"
+        usedocker: true
+        appdir: backend
+        docker_heroku_process_type: web
+        stack: container
 
-      
+  nginx:
+    name: deploy nginx
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{secrets.HEROKU_PYTHONSTACK}}
+        heroku_app_name: "python-stack"
+        heroku_email: "eric.mignot+pythonstack@gmail.com"
+        usedocker: true
+        appdir: nginx
+        docker_heroku_process_type: web
+        stack: container

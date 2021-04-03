@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  info:
+    name: about docker
+    runs-on: ubuntu-latest
+    steps:
+    - name: versions
+      run: |
+        docker version
+        docker-compose version
+
+  tests:
+    needs: info
+    name: run tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build images
+      run: docker-compose build
+    - name: Start
+      run: docker-compose up -d
+    - name: Run features
+      run: |
+        docker-compose exec -T backend ./features/support/run.sh
+        docker-compose exec -T backend ./backend/tests/support/run.sh
+
+      

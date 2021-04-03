@@ -37,6 +37,8 @@ docker-compose exec backend ./backend/tests/support/run.sh
     - `python-stack`
     - `python-stack-backend`
 - access your heroku.com account
+    - navigate to `python-stack-backend` Resources
+    - add Heroku Postgres add-on
     - navigate to `python-stack` Settings
     - click `Reveal Config Vars`
     - add config var 
