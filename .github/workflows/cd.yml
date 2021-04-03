@@ -22,6 +22,7 @@ jobs:
         docker_heroku_process_type: web
         stack: container
         healthcheck: "https://python-stack-backend.herokuapp.com/data"
+        delay: 33
 
   nginx:
     needs: backend
@@ -39,3 +40,5 @@ jobs:
         docker_heroku_process_type: web
         stack: container
         healthcheck: "https://python-stack.herokuapp.com/api/data"
+        delay: 33
+        
