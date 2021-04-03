@@ -1,4 +1,4 @@
-[![Build Status](https://github.com/ericminio/python-stack/actions/workflows/python.yml/badge.svg)](https://github.com/ericminio/python-stack/actions)
+[![Build Status](https://github.com/ericminio/python-stack/actions/workflows/ci.yml/badge.svg)](https://github.com/ericminio/python-stack/actions)
 
 # Working Sofware
 
