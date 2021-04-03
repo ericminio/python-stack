@@ -21,6 +21,7 @@ jobs:
         appdir: backend
         docker_heroku_process_type: web
         stack: container
+        healthcheck: "https://python-stack-backend.herokuapp.com/data"
 
   nginx:
     name: deploy nginx
