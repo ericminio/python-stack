@@ -1,6 +1,6 @@
 const menuTemplate = document.createElement('template')
 menuTemplate.innerHTML = `
-<link  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="StyleSheet" type="text/css">
+<link  href="/css/bootstrap.css" rel="StyleSheet" type="text/css">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">HelloWorld</a>
@@ -24,11 +24,9 @@ document.defaultView.customElements.define('hw-menu', class HwMenu extends HTMLE
     }
     connectedCallback() {
         let request = window.location.search
-        console.log('menu', request)
         let links = this.shadowRoot.querySelectorAll('.nav-item')
         links.forEach(link => {
             link.classList.remove('active')
-            console.log(link.href)
             if (link.href.includes(request)) {
                 link.classList.add('active')
             }
