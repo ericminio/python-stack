@@ -6,26 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link  href="/css/main.css" rel="StyleSheet" type="text/css">
         <script src="/js/main.js"></script>
+        <script src="/js/router.js"></script>
         <script src="/js/home.js"></script>
         <script src="/js/users.js"></script> 
     </head>
     <body>
-        <div id="app">   
-        </div>
-
-        <script>
-            let app = document.getElementById('app')
-            let home = `<hw-home></hw-home>`
-            let users = `<hw-users></hw-users>`
-            let request = window.location.search.substring(6)
-            if (request == 'users') {
-                app.innerHTML = users
-            }
-            else {
-                app.innerHTML = home
-            }
- 
-        </script>
-
+        <div id="app"/>
+        <hw-router content="app"/>
     </body>
 </html>
