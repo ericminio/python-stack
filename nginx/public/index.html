@@ -5,28 +5,28 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://unpkg.com/vue@3.0.7/dist/vue.global.js"></script>
-        <script src="/js/main.js"></script>              
+        <script src="/js/main.js"></script> 
+        <script src="/js/home.js"></script>              
         <link  href="/css/main.css" rel="StyleSheet" type="text/css">
     </head>
     <body>
-        <div id="app">
-            
+        <div id="app">   
         </div>
 
         <script>
             let app = document.getElementById('app')
-            let home = `<label id="title">{{ title }}</label>`
+            let home = `<hw-home></hw-home>`
             let users = `
                 <ol id="users">
                     <li class="user" v-for="user in users" :id="['user-' + user.id]">{{ user.username }}</li>
                 </ol>
             `
-            let page = window.location.search.substring(6)
-            if (page == 'home') {
-                app.innerHTML = home
-            }
-            if (page == 'users') {
+            let requested = window.location.search.substring(6)
+            if (requested == 'users') {
                 app.innerHTML = users
+            }
+            else {
+                app.innerHTML = home
             }
 
             const App = {
@@ -37,9 +37,6 @@
                     }
                 },
                 mounted() {
-                    fetchData('/data', document).then(async data => {
-                        this.title = data.title
-                    })
                     fetchData('/users', document).then(async list => {
                         this.users = list.entries
                     })
