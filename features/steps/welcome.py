@@ -4,5 +4,5 @@ from environment import find_element
 
 @then('I see "{message}"')
 def title(context, message):
-    element = find_element('body', context.browser)
+    element = find_element('#title', context.browser)
     assert_that(element.text, equal_to(message))
