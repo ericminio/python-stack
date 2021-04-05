@@ -1,8 +1,6 @@
 const homeTemplate = document.createElement('template')
 homeTemplate.innerHTML = `
-<label id="title">
-    {{ title }}
-</label>
+<label id="title"></label>
 `
 
 window.customElements.define('hw-home', class HwHome extends HTMLElement {

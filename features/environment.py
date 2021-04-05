@@ -13,19 +13,30 @@ def before_all(context):
     
 def find_element(selector, browser):
     search = """
+        let elements = [
+            'hw-home',
+            'hw-users'
+        ];      
         let search = (selector, dom)=>{ 
             let candidate = dom.querySelector(selector); 
-            if (candidate !== null) { 
+            if (candidate) { 
                 return candidate;
             } 
             else { 
-                let component = dom.querySelector('hw-home');
-                if (component !== null) {
-                    return search(selector, dom.querySelector('hw-home').shadowRoot);
+                let children = [];
+                for (let k=0; k < elements.length; k++) {
+                    let name = elements[k];
+                    let components = dom.querySelectorAll(name);
+                    for (let j=0; j < components.length ; j++) {
+                        children.push(components[j].shadowRoot);
+                    }
                 }
-                else {
-                    return null;
+                for (let i=0; i < children.length; i++) {
+                    let child = children[i];
+                    let element = search(selector, child);
+                    if (element) { return element; }
                 }
+                return null;
             }   
         };
         return search('{what}', document)
