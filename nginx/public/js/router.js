@@ -15,6 +15,13 @@ document.defaultView.customElements.define('hw-router', class HwRouter extends H
     connectedCallback() {
         let request = window.location.search
         let app = document.getElementById(this.content)
-        app.innerHTML = this.routes.find(route => route.match(request)).html
+        let page = this.routes.find(route => route.match(request)).html
+        let html = `
+            <hw-menu></hw-menu>
+            <div class="page">
+                ${page}
+            </div>
+        `
+        app.innerHTML = html
     }
 })

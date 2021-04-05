@@ -1,5 +1,6 @@
 const usersTemplate = document.createElement('template')
 usersTemplate.innerHTML = `
+<label>Fetched from db:</label>
 <ol id="users"></ol>
 `
 const userTemplate = document.createElement('template')
