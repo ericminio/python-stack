@@ -26,9 +26,11 @@ jobs:
       run: docker-compose build
     - name: Start
       run: docker-compose up -d
-    - name: Run features
+    - name: Run tests
       run: |
-        docker-compose exec -T backend ./features/support/run.sh
+        cd features/support
+        docker-compose run behave
+        cd ../..
         docker-compose exec -T backend ./backend/tests/support/run.sh
 
       

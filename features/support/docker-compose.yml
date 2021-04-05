@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+
+  behave:
+    build: 
+      context: ../..
+      dockerfile: features/support/Dockerfile
+    image: features:behave
+    container_name: behave
+    volumes:
+      - ../..:/usr/local/src/
+
+networks:
+  default:
+    external:
+      name: python-stack_default

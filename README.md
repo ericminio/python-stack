@@ -17,8 +17,8 @@ Should see
 
 ## features
 ```
-docker-compose up
-docker-compose exec backend ./features/support/run.sh
+cd features/support
+docker-compose run behave
 ```
 
 ## backend
