@@ -10,14 +10,25 @@
     </head>
     <body>
         <div id="app">
-            <label id="title">{{ title }}</label>
-
-            <ol id="users">
-                <li class="user" v-for="user in users" :id="['user-' + user.id]">{{ user.username }}</li>
-            </ol>
+            
         </div>
 
-        <script>            
+        <script>
+            let app = document.getElementById('app')
+            let home = `<label id="title">{{ title }}</label>`
+            let users = `
+                <ol id="users">
+                    <li class="user" v-for="user in users" :id="['user-' + user.id]">{{ user.username }}</li>
+                </ol>
+            `
+            let page = window.location.search.substring(6)
+            if (page == 'home') {
+                app.innerHTML = home
+            }
+            if (page == 'users') {
+                app.innerHTML = users
+            }
+
             const App = {
                 data() {
                     return {

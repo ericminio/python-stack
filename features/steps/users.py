@@ -15,3 +15,8 @@ def first_user(context, name):
 def second_user(context, name):
     element = context.browser.find_by_css('#users .user:nth-child(2)').first
     assert_that(element.text, equal_to(name))
+
+@then('I don\'t see the user list')
+def nousers(context):
+    elements = context.browser.find_by_css('#users')
+    assert_that(len(elements), equal_to(0))
