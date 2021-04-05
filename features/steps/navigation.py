@@ -4,3 +4,7 @@ from behave import given, when, then
 def visit(context):
     context.browser.visit('http://nginx:8080')
     
+@given('I visit the users page')
+def visit(context):
+    context.browser.visit('http://nginx:8080')
+    
