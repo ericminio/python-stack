@@ -3,7 +3,7 @@ homeTemplate.innerHTML = `
 <label id="title"></label>
 `
 
-window.customElements.define('hw-home', class HwHome extends HTMLElement {
+document.defaultView.customElements.define('hw-home', class HwHome extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode:'open'})

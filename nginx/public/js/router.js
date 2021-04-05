@@ -1,4 +1,4 @@
-window.customElements.define('hw-router', class HwRouter extends HTMLElement {
+document.defaultView.customElements.define('hw-router', class HwRouter extends HTMLElement {
     static get observedAttributes() {
         return ['content'];
     }

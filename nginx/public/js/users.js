@@ -7,7 +7,7 @@ userTemplate.innerHTML = `
 <li class="user"></li>
 `
 
-window.customElements.define('hw-users', class HwUsers extends HTMLElement {
+document.defaultView.customElements.define('hw-users', class HwUsers extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode:'open'})
